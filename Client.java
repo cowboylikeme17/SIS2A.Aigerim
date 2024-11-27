@@ -9,34 +9,34 @@ public class Client {
              BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
              Scanner scanner = new Scanner(System.in)) {
 
-            System.out.println("Connected to the server.");
+            System.out.println("Connected to the server");
             while (true) {
                 System.out.println("Enter 3D object:");
-                String shapeType = scanner.nextLine();
-                if (shapeType.equalsIgnoreCase("Q")) {
+                String Shapes = scanner.nextLine();
+                if (Shapes.equalsIgnoreCase("Q")) {
                     objectOutputStream.writeObject(null);
                     System.out.println("Process finished with exit code 0");
                     break;
                 }
-                Shape shape = null;
+                Shape s = null;
 
-                if (shapeType.equalsIgnoreCase("Circle")) {
+                if (Shapes.equalsIgnoreCase("Circle")) {
                     System.out.print("Enter radius: ");
-                    double radius = scanner.nextDouble();
+                    double r = scanner.nextDouble();
                     scanner.nextLine();
-                    shape = new Circle(radius);
-                } else if (shapeType.equalsIgnoreCase("Rectangle")) {
-                    System.out.print("Enter l: ");
-                    double length = scanner.nextDouble();
-                    System.out.print("Enter w: ");
-                    double width = scanner.nextDouble();
+                    s = new Circle(r);
+                } else if (Shapes.equalsIgnoreCase("Rectangle")) {
+                    System.out.print("Enter length: ");
+                    double l = scanner.nextDouble();
+                    System.out.print("Enter width: ");
+                    double w = scanner.nextDouble();
                     scanner.nextLine();
-                    shape = new Rectangle(length, width);
+                    s = new Rectangle(l, w);
                 } else {
-                    System.out.println("Invalid object name.");
+                    System.out.println("Invalid object ERROR");
                     continue;
                 }
-                objectOutputStream.writeObject(shape);
+                objectOutputStream.writeObject(s);
 
                 System.out.println(in.readLine());
                 System.out.println(in.readLine());
