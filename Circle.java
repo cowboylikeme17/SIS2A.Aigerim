@@ -9,6 +9,6 @@ class Circle extends Shape {
     }
     @Override
     public String toString() {
-        return "Circle with params " + r;
+        return "Circle with param " + r;
     }
 }
