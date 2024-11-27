@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+
 public class Server {
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(1717)) {
@@ -20,8 +21,8 @@ public class Server {
                         }
 
                         double area = s.calculateArea();
-                        String shapeDetails = s.toString();
-                        System.out.println("Client requested the area of a " + shapeDetails + ". Answer is " + area);
+                        String P = s.toString();
+                        System.out.println("Client requested the area with parameters: " + P + ". Answer is " + area);
 
                         out.println("Server message:");
                         out.println("Answer is: " + area);
